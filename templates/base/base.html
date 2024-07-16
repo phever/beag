@@ -10,12 +10,15 @@
 	<link rel="icon" href="{% static 'favicon.ico' %}"/>
 	<title>{{ title }}</title>
 </head>
-<body class="text-black bg-gray-100 dark:text-gray-200 dark:bg-gray-700">
-{% block header %}{% include 'base/header.html' %}{% endblock %}
+<body class="text-black bg-gray-100 dark:text-gray-200 dark:bg-gray-800">
+{% block topbar %}{% include 'base/topbar.html' %}{% endblock %}
+{% block sidebar %}{% include 'base/sidebar.html' %}{% endblock %}
 {% block content %}{% endblock %}
 {% block footer %}{% include 'base/footer.html' %}{% endblock %}
 {% block javascript %}
-	<script src="{% static 'wiki/darkmode.js' %}"></script>
+	<script>let staticUrl = "{% get_static_prefix %}"</script>
+	<script src="{% static 'wiki/darkMode.js' %}"></script>
+	<script src="{% static 'wiki/classSelector.js' %}"></script>
 {% endblock %}
 </body>
 </html>

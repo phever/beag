@@ -9,15 +9,18 @@ def default_context(context: dict, path) -> dict:
             except:
                 context[key] = default_value
 
-    add_context('title', 'DEFAULT_TITLE', 'No default title')
+    def add_default_topbar():
+        if 'dashboard_items' not in context.keys():
+            context['dashboard_items'] = []
+        home = {
+            'text': 'Home',
+            'href': '/',
+            'active': path == '/',
+        }
+        # home always first
+        context['dashboard_items'].insert(0, home)
 
-    if 'dashboard_items' not in context.keys():
-        context['dashboard_items'] = [
-            {
-                'text': 'Home',
-                'href': '/',
-                'active': path == '/',
-            },
-        ]
+    add_default_topbar()
+    add_context('title', 'DEFAULT_TITLE', 'No default title')
 
     return context
