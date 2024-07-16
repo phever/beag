@@ -6,14 +6,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="{% static 'wiki/default.css' %}" rel="stylesheet">
+	<link href="{% static 'wiki/webfonts/all.min.css' %}" rel="stylesheet">
+	<link rel="icon" href="{% static 'favicon.ico' %}"/>
 	<title>{{ title }}</title>
 </head>
-<body>
-<div id="main">
-	{% block header %}{% include 'base/header.html' %}{% endblock %}
-	{% block content %}{% endblock %}
-	{% block footer %}{% include 'base/footer.html' %}{% endblock %}
-</div>
-{% block javascript %}{% endblock %}
+<body class="text-black bg-gray-100 dark:text-gray-200 dark:bg-gray-700">
+{% block header %}{% include 'base/header.html' %}{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% include 'base/footer.html' %}{% endblock %}
+{% block javascript %}
+	<script src="{% static 'wiki/darkmode.js' %}"></script>
+{% endblock %}
 </body>
 </html>

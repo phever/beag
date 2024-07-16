@@ -3,4 +3,7 @@ from .functions import default_context
 
 
 def index(request):
-    return render(request, 'index.html', context=default_context({}))
+    context = {
+        'title': 'Welcome to Beag - a Dark Ages Wiki'
+    }
+    return render(request, 'index.html', context=default_context(context, request.path))
